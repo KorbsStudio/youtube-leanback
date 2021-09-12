@@ -1,5 +1,19 @@
 const {app, BrowserWindow, ipcMain, ipcRenderer, Menu} = require('electron')
 var osvar = process.platform;
+const {autoUpdater} = require("electron-updater");
+const log = require('electron-log');
+autoUpdater.logger = log;
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Restart', 'Later'],
+    title: 'Update Ready',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail: 'A new update is ready!'
+  }
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {if (returnValue.response === 0) autoUpdater.quitAndInstall()})
+})
 
 if (osvar == 'darwin') { // macOS
   app.whenReady().then(() => {
@@ -23,7 +37,10 @@ function createWindow () {
     frame: global.frame,
     darkTheme: true,
     titleBarStyle: 'hiddenInset',
-    fullscreen: true
+    fullscreen: true,
+    webPreferences: {
+      nativeWindowOpen: true
+    }
   })
   mainWindow.loadURL('https://www.youtube.com/tv#/',
   {userAgent: 'Roku/DVP-9.10 (519.10E04111A)'}); // YouTube will view the device as a Roku
@@ -43,5 +60,6 @@ function createWindow () {
   }]
   Menu.setApplicationMenu(Menu.buildFromTemplate(topBarMenu))
 }
-app.whenReady().then(() => {createWindow()})
-
+autoUpdater.on('update-available', (info) => {sendStatusToWindow('New update downloading...')})
+function sendStatusToWindow(text) {log.info(text);mainWindow.webContents.send('message', text);}
+app.whenReady().then(() => {createWindow();autoUpdater.checkForUpdatesAndNotify();})
