@@ -1,6 +1,6 @@
 {
   "name": "youtube-leanback",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Experience YouTube TV on your desktop.",
   "main": "main.js",
   "scripts": {

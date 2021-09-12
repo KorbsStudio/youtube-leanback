@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YouTube Leanback - Keyboard Shortcuts</title>
+    </head>
+    <body>
+        <div class="shortcuts">
+            <div class="shortcut"><span id="key">Enter</span><p>Select</p></div>
+            <div class="shortcut"><span id="key">Enter (Hold)</span><p>Options</p></div>
+            <div class="shortcut"><span id="key">Backspace</span><p>Back</p></div>
+            <div class="shortcut"><span id="key">ESC</span><p>Exit Video</p></div>
+            <div class="shortcut"><span id="key">Arrow Up</span><p>Navigate Up</p></div>
+            <div class="shortcut"><span id="key">Arrow Down</span><p>Navigate Down</p></div>
+            <div class="shortcut"><span id="key">Arrow Left</span><p>Navigate Left</p></div>
+            <div class="shortcut"><span id="key">Arrow Right</span><p>Navigate Right</p></div>
+        </div>
+        <p style="opacity: 0.3;position: absolute;bottom: 2px;left: 50%;transform: translate(-50%);pointer-events: none;">Press Enter to close keyboard shortcuts</p>
+        <button style="opacity: 0;" id="hideKB" onclick="ipcRenderer.send('hideKB')" type="button" autofocus></button>
+    </body>
+    <script src="renderer.js"></script>
+</html>
+<style>
+body {
+    background: #212121;
+    color: white;
+    font-family: arial;
+    overflow: hidden;
+}
+
+.shortcuts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+.shortcut {display: flex;}
+span#key {
+    border: 1px white solid;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+</style>
