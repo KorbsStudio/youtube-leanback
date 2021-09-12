@@ -1,5 +1,5 @@
 # YouTube Leanback on Desktop
-![YouTube TV Preview on Linux(GNOME)](https://user-images.githubusercontent.com/51213244/132971426-b5854e36-f15e-4484-846c-234e0a2b8ac7.png)
+![YouTube TV Preview on Linux(GNOME)](https://user-images.githubusercontent.com/51213244/132971924-da99c8f0-3bdc-420a-9224-e20bd0ba7238.png)
 
 ### To Do List
  - Add Keyboard Shortcuts overlay
