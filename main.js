@@ -60,6 +60,4 @@ function createWindow () {
   }]
   Menu.setApplicationMenu(Menu.buildFromTemplate(topBarMenu))
 }
-autoUpdater.on('update-available', (info) => {sendStatusToWindow('New update downloading...')})
-function sendStatusToWindow(text) {log.info(text);mainWindow.webContents.send('message', text);}
 app.whenReady().then(() => {createWindow();autoUpdater.checkForUpdatesAndNotify();})
