@@ -16,6 +16,7 @@ else{ //Linux
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
+    backgroundColor: '#212121', // Use YouTube's branding colors (Almost Black)
     width: 600,
     height: 400,
     autoHideMenuBar: true,

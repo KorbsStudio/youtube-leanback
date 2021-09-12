@@ -4,7 +4,9 @@
   "description": "Experience YouTube TV on your desktop.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder build",
+    "publish": "electron-builder build -p always"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,39 @@
     "url": "https://github.com/KorbsStudio/youtube-leanback/issues"
   },
   "homepage": "https://github.com/KorbsStudio/youtube-leanback#readme",
+  "build": {
+    "appId": "com.korbsstudio.youtube-leanback",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icons/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icons/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "build/icons/icon.png",
+      "category": "Network",
+      "synopsis": "Experience YouTube TV on your desktop.",
+      "description": "Experience YouTube TV on your desktop."
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "KorbsStudio",
+        "repo": "youtube-leanback",
+        "releaseType": "draft"
+      }
+    ]
+  },
   "dependencies": {
-    "electron": "^14.0.0"
+    "electron-log": "^4.4.1",
+    "electron-progressbar": "^2.0.1",
+    "electron-updater": "^4.3.9"
+  },
+  "devDependencies": {
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7"
   }
 }
