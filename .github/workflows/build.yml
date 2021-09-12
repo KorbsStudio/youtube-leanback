@@ -21,12 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build
-    - name: Save Files
-      uses: actions/upload-artifact@v2.2.3
-      with:
-        name: app-macos
-        path: dist/
+    - run: npm run publish
     
   build-lnx:
 
@@ -42,12 +37,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build
-    - name: Save Files
-      uses: actions/upload-artifact@v2.2.3
-      with:
-        name: app-linux
-        path: dist/
+    - run: npm run publish
     
   build-win:
 
@@ -63,10 +53,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build
-    - name: Save Files
-      uses: actions/upload-artifact@v2.2.3
-      with:
-        name: app-windows
-        path: dist/
+    - run: npm run publish
     
