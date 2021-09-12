@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, ipcRenderer, Menu} = require('electron')
+const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu} = require('electron')
 var osvar = process.platform;
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
