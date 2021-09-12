@@ -1,0 +1,25 @@
+{
+  "name": "youtube-leanback",
+  "version": "1.0.0",
+  "description": "Experience YouTube TV on your desktop.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KorbsStudio/youtube-leanback.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "KorbsStudio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KorbsStudio/youtube-leanback/issues"
+  },
+  "homepage": "https://github.com/KorbsStudio/youtube-leanback#readme",
+  "dependencies": {
+    "electron": "^14.0.0"
+  }
+}
