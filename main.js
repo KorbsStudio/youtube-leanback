@@ -48,7 +48,6 @@ function createWindow () {
   {userAgent: 'Roku/DVP-9.10 (519.10E04111A)'}); // YouTube will view the device as a Roku
   mainWindow.setIcon(path.join(__dirname, './icon.png'));
   mainWindow.webContents.on('did-finish-load', function() {mainWindow.webContents.insertCSS('#loader {background-size: 25% !important}')})
-  mainWindow.webContents.openDevTools()
 
   const kbOverlay = new BrowserWindow({
     backgroundColor: '#212121',
